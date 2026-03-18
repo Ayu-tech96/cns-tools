@@ -7,26 +7,22 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Exo+2:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
   <style>
-    /* ─── DESIGN TOKENS ─── */
     :root {
-      --bg:        #080c14;
-      --surface:   #0d1525;
-      --card:      #111c30;
-      --border:    #1e3050;
-      --accent:    #00c8ff;
-      --accent2:   #0077ff;
-      --success:   #00e5a0;
-      --warn:      #ffc93c;
-      --danger:    #ff4d6d;
-      --text:      #d8eaf8;
-      --muted:     #5a7fa0;
-      --mono:      'Share Tech Mono', monospace;
-      --sans:      'Exo 2', sans-serif;
-      --glow:      0 0 18px rgba(0,200,255,.35);
-      --glow2:     0 0 30px rgba(0,200,255,.18);
+      --bg:      #080c14;
+      --surface: #0d1525;
+      --card:    #111c30;
+      --border:  #1e3050;
+      --accent:  #00c8ff;
+      --accent2: #0077ff;
+      --success: #00e5a0;
+      --warn:    #ffc93c;
+      --danger:  #ff4d6d;
+      --text:    #d8eaf8;
+      --muted:   #5a7fa0;
+      --mono:    'Share Tech Mono', monospace;
+      --sans:    'Exo 2', sans-serif;
+      --glow:    0 0 18px rgba(0,200,255,.35);
     }
-
-    /* ─── RESET & BASE ─── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
@@ -36,8 +32,6 @@
       min-height: 100vh;
       overflow-x: hidden;
     }
-
-    /* ─── ANIMATED GRID BACKGROUND ─── */
     body::before {
       content: '';
       position: fixed; inset: 0;
@@ -45,8 +39,7 @@
         linear-gradient(rgba(0,200,255,.04) 1px, transparent 1px),
         linear-gradient(90deg, rgba(0,200,255,.04) 1px, transparent 1px);
       background-size: 44px 44px;
-      pointer-events: none;
-      z-index: 0;
+      pointer-events: none; z-index: 0;
       animation: gridDrift 40s linear infinite;
     }
     @keyframes gridDrift {
@@ -54,58 +47,50 @@
       to   { background-position: 44px 44px; }
     }
 
-    /* ─── HEADER ─── */
+    /* HEADER */
     header {
       position: relative; z-index: 10;
       display: flex; align-items: center; justify-content: space-between;
       padding: 18px 40px;
       border-bottom: 1px solid var(--border);
-      background: rgba(8,12,20,.85);
+      background: rgba(8,12,20,.88);
       backdrop-filter: blur(12px);
     }
-    .logo {
-      display: flex; align-items: center; gap: 14px;
-    }
+    .logo { display: flex; align-items: center; gap: 14px; }
     .logo-icon {
       width: 42px; height: 42px;
       background: linear-gradient(135deg, var(--accent2), var(--accent));
       border-radius: 10px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 22px;
-      box-shadow: var(--glow);
+      font-size: 22px; box-shadow: var(--glow);
     }
-    .logo-text {
-      display: flex; flex-direction: column;
-    }
+    .logo-text { display: flex; flex-direction: column; }
     .logo-text strong {
       font-size: 18px; font-weight: 900; letter-spacing: .08em;
       background: linear-gradient(90deg, var(--accent), #fff);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
     .logo-text span {
-      font-size: 11px; color: var(--muted); letter-spacing: .12em; text-transform: uppercase;
-      font-family: var(--mono);
+      font-size: 11px; color: var(--muted); letter-spacing: .12em;
+      text-transform: uppercase; font-family: var(--mono);
     }
     .header-badge {
-      font-family: var(--mono);
-      font-size: 11px; color: var(--accent);
-      border: 1px solid var(--accent);
-      border-radius: 20px;
-      padding: 4px 12px;
-      letter-spacing: .1em;
+      font-family: var(--mono); font-size: 11px; color: var(--accent);
+      border: 1px solid var(--accent); border-radius: 20px;
+      padding: 4px 12px; letter-spacing: .1em;
       animation: pulse 2.5s ease-in-out infinite;
     }
     @keyframes pulse {
-      0%,100% { opacity: 1; box-shadow: 0 0 6px rgba(0,200,255,.3); }
-      50%      { opacity: .7; box-shadow: 0 0 16px rgba(0,200,255,.6); }
+      0%,100% { opacity:1; box-shadow:0 0 6px rgba(0,200,255,.3); }
+      50%      { opacity:.7; box-shadow:0 0 16px rgba(0,200,255,.6); }
     }
 
-    /* ─── NAV TABS ─── */
+    /* TABS */
     nav {
       position: sticky; top: 0; z-index: 9;
       display: flex; gap: 4px;
       padding: 10px 40px;
-      background: rgba(8,12,20,.9);
+      background: rgba(8,12,20,.92);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       overflow-x: auto;
@@ -113,100 +98,72 @@
     nav::-webkit-scrollbar { display: none; }
     .tab-btn {
       flex-shrink: 0;
-      background: transparent;
-      border: 1px solid transparent;
-      color: var(--muted);
-      font-family: var(--sans);
-      font-size: 13px; font-weight: 600;
-      letter-spacing: .06em;
-      padding: 8px 20px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all .25s;
-      text-transform: uppercase;
+      background: transparent; border: 1px solid transparent;
+      color: var(--muted); font-family: var(--sans);
+      font-size: 13px; font-weight: 600; letter-spacing: .06em;
+      padding: 8px 20px; border-radius: 8px;
+      cursor: pointer; transition: all .25s; text-transform: uppercase;
     }
     .tab-btn:hover { color: var(--text); border-color: var(--border); }
     .tab-btn.active {
-      color: var(--accent);
-      border-color: var(--accent);
+      color: var(--accent); border-color: var(--accent);
       background: rgba(0,200,255,.07);
       box-shadow: 0 0 12px rgba(0,200,255,.2);
     }
 
-    /* ─── MAIN LAYOUT ─── */
+    /* MAIN */
     main {
       position: relative; z-index: 1;
-      max-width: 860px;
-      margin: 40px auto;
+      max-width: 900px; margin: 40px auto;
       padding: 0 24px 80px;
     }
-
-    /* ─── PANELS ─── */
     .panel { display: none; animation: fadeUp .35s ease; }
     .panel.active { display: block; }
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(14px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from { opacity:0; transform:translateY(14px); }
+      to   { opacity:1; transform:translateY(0); }
     }
 
-    /* ─── SECTION CARD ─── */
+    /* CARD */
     .card {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 32px;
+      border-radius: 16px; padding: 32px;
       margin-bottom: 24px;
-      position: relative;
-      overflow: hidden;
+      position: relative; overflow: hidden;
     }
     .card::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
       background: linear-gradient(90deg, transparent, var(--accent), transparent);
     }
     .card-title {
       font-size: 13px; font-weight: 700; letter-spacing: .15em;
       text-transform: uppercase; color: var(--accent);
-      font-family: var(--mono);
-      margin-bottom: 6px;
+      font-family: var(--mono); margin-bottom: 6px;
       display: flex; align-items: center; gap: 8px;
     }
     .card-title::before {
-      content: '';
-      display: inline-block;
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: var(--glow);
+      content: ''; display: inline-block;
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--accent); box-shadow: var(--glow);
     }
-    .card h2 {
-      font-size: 22px; font-weight: 800; color: var(--text);
-      margin-bottom: 6px; line-height: 1.2;
-    }
-    .card p.desc {
-      font-size: 13px; color: var(--muted); margin-bottom: 24px; line-height: 1.6;
-    }
+    .card h2 { font-size: 22px; font-weight: 800; margin-bottom: 6px; }
+    .card p.desc { font-size: 13px; color: var(--muted); margin-bottom: 24px; line-height: 1.6; }
 
-    /* ─── FORM ELEMENTS ─── */
+    /* FORM */
     .field { margin-bottom: 20px; }
     .field label {
-      display: block;
-      font-size: 11px; font-weight: 700; letter-spacing: .12em;
-      text-transform: uppercase; color: var(--muted);
-      margin-bottom: 7px;
-      font-family: var(--mono);
+      display: block; font-size: 11px; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 7px; font-family: var(--mono);
     }
     .field input, .field select {
-      width: 100%;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      color: var(--text);
-      font-family: var(--mono);
-      font-size: 15px;
-      padding: 12px 16px;
-      transition: border-color .2s, box-shadow .2s;
-      outline: none;
+      width: 100%; background: var(--surface);
+      border: 1px solid var(--border); border-radius: 8px;
+      color: var(--text); font-family: var(--mono);
+      font-size: 15px; padding: 12px 16px;
+      transition: border-color .2s, box-shadow .2s; outline: none;
       -webkit-appearance: none;
     }
     .field input::placeholder { color: var(--muted); }
@@ -217,578 +174,555 @@
     .field select {
       cursor: pointer;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M0 0l6 8 6-8z' fill='%235a7fa0'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 14px center;
-      padding-right: 36px;
+      background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px;
     }
+    .field-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
 
-    /* Row layout for inline fields */
-    .field-row {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 12px;
-      align-items: end;
-    }
-    .field-row-3 {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 14px;
-    }
-
-    /* ─── BUTTONS ─── */
+    /* BUTTONS */
     .btn {
       display: inline-flex; align-items: center; gap: 8px;
       background: linear-gradient(135deg, var(--accent2), var(--accent));
-      color: #fff;
-      font-family: var(--sans);
+      color: #fff; font-family: var(--sans);
       font-size: 13px; font-weight: 700; letter-spacing: .08em;
-      text-transform: uppercase;
-      border: none; border-radius: 8px;
-      padding: 13px 28px;
-      cursor: pointer;
-      transition: transform .2s, box-shadow .2s, opacity .2s;
+      text-transform: uppercase; border: none; border-radius: 8px;
+      padding: 13px 28px; cursor: pointer;
+      transition: transform .2s, box-shadow .2s;
       box-shadow: 0 4px 18px rgba(0,119,255,.35);
       white-space: nowrap;
     }
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(0,200,255,.45);
-    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,200,255,.45); }
     .btn:active { transform: translateY(0); }
     .btn-full { width: 100%; justify-content: center; }
 
-    /* ─── RESULT BOX ─── */
+    /* RESULT BOX */
     .result-box {
-      margin-top: 20px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 18px 20px;
-      font-family: var(--mono);
-      font-size: 14px;
-      min-height: 54px;
-      color: var(--success);
-      line-height: 1.6;
-      transition: all .3s;
-      word-break: break-all;
+      margin-top: 20px; background: var(--surface);
+      border: 1px solid var(--border); border-radius: 10px;
+      padding: 18px 20px; font-family: var(--mono);
+      font-size: 14px; min-height: 54px;
+      color: var(--success); line-height: 1.6;
+      transition: all .3s; word-break: break-all;
     }
     .result-box.error { color: var(--danger); }
     .result-box.empty { color: var(--muted); }
 
-    /* ─── RESULTS TABLE ─── */
-    .result-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-family: var(--mono);
-      font-size: 14px;
-      margin-top: 8px;
-    }
-    .result-table th {
-      text-align: left;
-      padding: 10px 16px;
-      font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
-      color: var(--muted);
-      border-bottom: 1px solid var(--border);
-      font-weight: 600;
-      white-space: nowrap;
-    }
-    .result-table td {
-      padding: 12px 16px;
-      color: var(--text);
-      border-bottom: 1px solid rgba(30,48,80,.5);
-    }
-    .result-table tr:last-child td { border-bottom: none; }
-    .result-table tr:hover td { background: rgba(0,200,255,.03); }
-    .val-highlight {
-      color: var(--accent);
-      font-weight: 700;
-      font-size: 15px;
-    }
-    .val-success { color: var(--success); font-weight: 700; }
-    .val-warn { color: var(--warn); font-weight: 700; }
-    .error-msg {
-      color: var(--danger);
-      font-family: var(--mono);
-      font-size: 13px;
-      margin-top: 10px;
-      min-height: 20px;
-    }
-
-    /* ─── MORSE VISUAL ─── */
+    /* MORSE VISUAL */
     .morse-visual {
       display: flex; flex-wrap: wrap; gap: 6px; align-items: center;
-      padding: 16px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      margin-top: 16px;
-      min-height: 56px;
+      padding: 16px; background: var(--surface);
+      border: 1px solid var(--border); border-radius: 8px;
+      margin-top: 16px; min-height: 56px;
     }
     .morse-char-group { display: flex; align-items: center; gap: 4px; }
-    .morse-dot {
-      width: 10px; height: 10px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 8px var(--accent);
-    }
-    .morse-dash {
-      width: 30px; height: 10px;
-      border-radius: 5px;
-      background: var(--accent);
-      box-shadow: 0 0 8px var(--accent);
-    }
-    .morse-gap {
-      width: 12px;
-    }
-    .morse-label {
-      font-size: 11px; color: var(--muted);
-      margin-top: 10px; font-family: var(--mono);
-    }
+    .morse-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px var(--accent); }
+    .morse-dash { width: 30px; height: 10px; border-radius: 5px; background: var(--accent); box-shadow: 0 0 8px var(--accent); }
+    .morse-gap { width: 12px; }
+    .morse-label { font-size: 11px; color: var(--muted); margin-top: 10px; font-family: var(--mono); width: 100%; }
 
-    /* ─── DIVIDER ─── */
-    .divider {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 28px 0;
+    /* NAVAIDS SPLIT PANEL */
+    .nav-wrap {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 20px; align-items: start;
     }
+    .nav-left { display: flex; flex-direction: column; gap: 0; }
+    .nav-right { position: sticky; top: 72px; }
 
-    /* ─── FOOTER ─── */
+    .seg-ctrl {
+      display: flex; border: 1px solid var(--border);
+      border-radius: 10px; overflow: hidden; margin-bottom: 20px;
+    }
+    .seg-btn {
+      flex: 1; padding: 10px 4px;
+      font-size: 11px; font-weight: 700; letter-spacing: .05em;
+      text-transform: uppercase; border: none;
+      background: transparent; cursor: pointer;
+      color: var(--muted); transition: all .2s;
+      font-family: var(--sans); text-align: center; line-height: 1.3;
+    }
+    .seg-btn.on { background: rgba(0,200,255,.1); color: var(--accent); }
+    .seg-btn + .seg-btn { border-left: 1px solid var(--border); }
+
+    .lookup-section { display: none; animation: fadeUp .2s ease; }
+    .lookup-section.vis { display: block; }
+
+    .nf { margin-bottom: 16px; }
+    .nf label {
+      display: block; font-size: 11px; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 6px; font-family: var(--mono);
+    }
+    .nf input, .nf select {
+      width: 100%; background: var(--surface);
+      border: 1px solid var(--border); border-radius: 8px;
+      color: var(--text); font-family: var(--mono);
+      font-size: 15px; padding: 11px 14px; outline: none;
+      transition: border-color .2s, box-shadow .2s;
+      -webkit-appearance: none;
+    }
+    .nf input:focus, .nf select:focus {
+      border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,200,255,.12);
+    }
+    .nf select {
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M0 0l6 8 6-8z' fill='%235a7fa0'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px;
+    }
+    .nrow { display: grid; grid-template-columns: 1fr 72px; gap: 10px; }
+
+    .nav-calc-btn {
+      width: 100%; padding: 12px; margin-top: 4px;
+      font-size: 12px; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; border: 1px solid var(--accent);
+      border-radius: 8px; background: rgba(0,200,255,.08);
+      color: var(--accent); cursor: pointer;
+      font-family: var(--sans); transition: all .2s;
+    }
+    .nav-calc-btn:hover { background: rgba(0,200,255,.18); transform: translateY(-1px); }
+    .nav-calc-btn:active { transform: translateY(0); }
+
+    /* Result card */
+    .res-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 24px; min-height: 340px;
+      position: relative; overflow: hidden;
+    }
+    .res-card::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--success), transparent);
+    }
+    .res-card-title {
+      font-size: 12px; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--success);
+      font-family: var(--mono); margin-bottom: 18px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .res-card-title::before {
+      content: ''; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--success); display: inline-block;
+      box-shadow: 0 0 8px var(--success);
+    }
+    .empty-state {
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: center; height: 260px;
+      color: var(--muted); font-size: 13px; font-family: var(--mono);
+      text-align: center; gap: 12px;
+    }
+    .empty-state span { font-size: 36px; opacity: .3; }
+
+    .stat-block { margin-bottom: 14px; }
+    .stat-lbl {
+      font-size: 10px; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--muted);
+      font-family: var(--mono); margin-bottom: 4px;
+    }
+    .stat-val {
+      font-size: 17px; font-weight: 700;
+      font-family: var(--mono); color: var(--text);
+    }
+    .stat-val.c-accent  { color: var(--accent); }
+    .stat-val.c-success { color: var(--success); }
+    .stat-val.c-warn    { color: var(--warn); }
+    .stat-sub { font-size: 11px; color: var(--muted); margin-top: 2px; font-family: var(--mono); }
+
+    .badge {
+      display: inline-block; font-size: 10px; padding: 2px 8px;
+      border-radius: 20px; font-weight: 700; margin-left: 8px;
+      vertical-align: middle; font-family: var(--mono);
+    }
+    .badge-ils { background: rgba(0,119,255,.15); color: #60b0ff; border: 1px solid rgba(0,119,255,.3); }
+    .badge-vor { background: rgba(0,229,160,.12); color: var(--success); border: 1px solid rgba(0,229,160,.3); }
+
+    .freq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 8px; }
+    .freq-box {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 12px; text-align: center;
+    }
+    .freq-box-lbl { font-size: 10px; color: var(--muted); font-family: var(--mono); margin-bottom: 6px; line-height: 1.4; }
+    .freq-box-val { font-size: 15px; font-weight: 700; font-family: var(--mono); }
+    .freq-box-val.gtx { color: var(--success); }
+    .freq-box-val.grx { color: var(--warn); }
+
+    .nav-divider { border: none; border-top: 1px solid var(--border); margin: 14px 0; }
+
+    .nav-err {
+      font-size: 12px; color: var(--danger); font-family: var(--mono);
+      background: rgba(255,77,109,.08); border: 1px solid rgba(255,77,109,.2);
+      border-radius: 8px; padding: 10px 14px; margin-top: 14px; display: none;
+    }
+    .nav-err.show { display: block; }
+
+    /* FOOTER */
     footer {
       position: fixed; bottom: 16px; right: 20px;
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--muted);
-      z-index: 100;
-      background: rgba(8,12,20,.7);
-      backdrop-filter: blur(8px);
-      padding: 6px 14px;
-      border-radius: 20px;
-      border: 1px solid var(--border);
+      font-family: var(--mono); font-size: 11px; color: var(--muted);
+      z-index: 100; background: rgba(8,12,20,.75);
+      backdrop-filter: blur(8px); padding: 6px 14px;
+      border-radius: 20px; border: 1px solid var(--border);
     }
 
-    /* ─── RESPONSIVE ─── */
-    @media (max-width: 640px) {
-      header { padding: 14px 20px; }
-      nav { padding: 8px 16px; }
-      main { padding: 0 16px 80px; margin-top: 24px; }
-      .card { padding: 22px 18px; }
+    @media (max-width: 660px) {
+      header { padding: 14px 18px; }
+      nav { padding: 8px 14px; }
+      main { padding: 0 14px 80px; margin-top: 22px; }
+      .card { padding: 22px 16px; }
       .field-row-3 { grid-template-columns: 1fr; }
-      .field-row { grid-template-columns: 1fr; }
+      .nav-wrap { grid-template-columns: 1fr; }
+      .nav-right { position: static; }
       .card h2 { font-size: 18px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ─── HEADER ─── -->
-  <header>
-    <div class="logo">
-      <div class="logo-icon">✈</div>
-      <div class="logo-text">
-        <strong>CNS TOOLS</strong>
-        <span>RCDU · AAI · Navigation Suite</span>
-      </div>
+<header>
+  <div class="logo">
+    <div class="logo-icon">✈</div>
+    <div class="logo-text">
+      <strong>CNS TOOLS</strong>
+      <span>RCDU · AAI · Navigation Suite</span>
     </div>
-    <div class="header-badge">● SYSTEM ONLINE</div>
-  </header>
+  </div>
+  <div class="header-badge">● SYSTEM ONLINE</div>
+</header>
 
-  <!-- ─── NAVIGATION ─── -->
-  <nav>
-    <button class="tab-btn active" onclick="switchTab('morse', this)">📡 Morse Code</button>
-    <button class="tab-btn" onclick="switchTab('freq', this)">📶 Freq Accuracy</button>
-    <button class="tab-btn" onclick="switchTab('navaids', this)">🛰️ Navaids / DME</button>
-  </nav>
+<nav>
+  <button class="tab-btn active" onclick="switchTab('morse',this)">📡 Morse Code</button>
+  <button class="tab-btn" onclick="switchTab('freq',this)">📶 Freq Accuracy</button>
+  <button class="tab-btn" onclick="switchTab('navaids',this)">🛰️ Navaids / DME</button>
+</nav>
 
-  <!-- ─── MAIN ─── -->
-  <main>
+<main>
 
-    <!-- ══════════════════════════════════════════
-         PANEL 1 — MORSE CODE
-    ══════════════════════════════════════════ -->
-    <div id="panel-morse" class="panel active">
-      <div class="card">
-        <div class="card-title">Module 01</div>
-        <h2>Morse Code Time Calculator</h2>
-        <p class="desc">Enter a 3–4 character ICAO identifier to compute its Morse encoding and total transmission time.</p>
+  <!-- ══ PANEL 1 — MORSE CODE ══ -->
+  <div id="panel-morse" class="panel active">
+    <div class="card">
+      <div class="card-title">Module 01</div>
+      <h2>Morse Code Time Calculator</h2>
+      <p class="desc">Enter a 3–4 character ICAO identifier to compute its Morse encoding and total transmission time.</p>
+      <div class="field">
+        <label>Station Identifier (3–4 chars)</label>
+        <input type="text" id="ident" maxlength="4" placeholder="e.g. VOR, ILS, DEL" autocomplete="off" />
+      </div>
+      <button class="btn btn-full" id="calculate">▶ Calculate Morse Time</button>
+      <div class="morse-visual" id="morseVisual">
+        <span style="color:var(--muted);font-family:var(--mono);font-size:13px;">Visual output will appear here…</span>
+      </div>
+      <div class="result-box empty" id="result">Enter an ident and press Calculate.</div>
+    </div>
+  </div>
 
+  <!-- ══ PANEL 2 — FREQUENCY ACCURACY ══ -->
+  <div id="panel-freq" class="panel">
+    <div class="card">
+      <div class="card-title">Module 02</div>
+      <h2>Frequency Accuracy Calculator</h2>
+      <p class="desc">Compute the percentage deviation between the assigned and measured frequencies, with optional channel offset correction.</p>
+      <div class="field-row-3">
         <div class="field">
-          <label>Station Identifier (3–4 chars)</label>
-          <input type="text" id="ident" maxlength="4" placeholder="e.g. VOR, ILS, DEL" autocomplete="off" />
-        </div>
-        <button class="btn btn-full" id="calculate">
-          ▶ Calculate Morse Time
-        </button>
-
-        <div class="morse-visual" id="morseVisual">
-          <span style="color:var(--muted);font-family:var(--mono);font-size:13px;">Visual output will appear here…</span>
-        </div>
-        <div class="result-box empty" id="result">Enter an ident and press Calculate.</div>
-      </div>
-    </div>
-
-    <!-- ══════════════════════════════════════════
-         PANEL 2 — FREQUENCY ACCURACY
-    ══════════════════════════════════════════ -->
-    <div id="panel-freq" class="panel">
-      <div class="card">
-        <div class="card-title">Module 02</div>
-        <h2>Frequency Accuracy Calculator</h2>
-        <p class="desc">Compute the percentage deviation between the assigned and measured frequencies, with optional channel offset correction.</p>
-
-        <div class="field-row-3">
-          <div class="field">
-            <label>Assigned Freq (MHz)</label>
-            <input type="number" id="assigned-frequency" placeholder="e.g. 108.10" step="0.01" />
-          </div>
-          <div class="field">
-            <label>Offset (kHz)</label>
-            <input type="number" id="offset" placeholder="e.g. 0" step="0.1" />
-          </div>
-          <div class="field">
-            <label>Offset Operation</label>
-            <select id="offset-operation">
-              <option value="add">+ Add</option>
-              <option value="subtract">− Subtract</option>
-            </select>
-          </div>
+          <label>Assigned Freq (MHz)</label>
+          <input type="number" id="assigned-frequency" placeholder="e.g. 108.10" step="0.01" />
         </div>
         <div class="field">
-          <label>Measured Frequency (MHz)</label>
-          <input type="number" id="calculated-frequency" placeholder="e.g. 108.102" step="0.0001" />
+          <label>Offset (kHz)</label>
+          <input type="number" id="offset" placeholder="e.g. 0" step="0.1" />
         </div>
-        <button class="btn btn-full" id="calculate1">▶ Calculate Accuracy</button>
-        <div class="result-box empty" id="result1">Enter frequencies and press Calculate.</div>
+        <div class="field">
+          <label>Offset Operation</label>
+          <select id="offset-operation">
+            <option value="add">+ Add</option>
+            <option value="subtract">− Subtract</option>
+          </select>
+        </div>
       </div>
+      <div class="field">
+        <label>Measured Frequency (MHz)</label>
+        <input type="number" id="calculated-frequency" placeholder="e.g. 108.102" step="0.0001" />
+      </div>
+      <button class="btn btn-full" id="calculate1">▶ Calculate Accuracy</button>
+      <div class="result-box empty" id="result1">Enter frequencies and press Calculate.</div>
     </div>
+  </div>
 
-    <!-- ══════════════════════════════════════════
-         PANEL 3 — NAVAIDS / DME
-    ══════════════════════════════════════════ -->
-    <div id="panel-navaids" class="panel">
+  <!-- ══ PANEL 3 — NAVAIDS / DME ══ -->
+  <div id="panel-navaids" class="panel">
+    <div class="card">
+      <div class="card-title">Module 03</div>
+      <h2>Navaids Frequency Tool</h2>
+      <p class="desc">Choose a lookup method on the left — results appear instantly on the right.</p>
 
-      <!-- Lookup A: DME Channel → Frequencies -->
-      <div class="card">
-        <div class="card-title">Lookup A</div>
-        <h2>DME Channel → All Frequencies</h2>
-        <p class="desc">Enter a DME channel number (1–126) and type to retrieve the paired VHF NAV and UHF DME frequencies.</p>
-
-        <div class="field-row">
-          <div class="field" style="margin-bottom:0">
-            <label>DME Channel (1–126)</label>
-            <input type="text" id="dmeChannel" value="17" />
+      <div class="nav-wrap">
+        <!-- LEFT -->
+        <div class="nav-left">
+          <div class="seg-ctrl">
+            <button class="seg-btn on" onclick="showSec('ch',this)">DME Channel</button>
+            <button class="seg-btn" onclick="showSec('nav',this)">VOR / ILS Freq</button>
+            <button class="seg-btn" onclick="showSec('llz',this)">LLZ → GP</button>
           </div>
-          <div class="field" style="margin-bottom:0">
-            <label>Type</label>
-            <select id="channelTypeSelect">
-              <option value="X">X</option>
-              <option value="Y">Y</option>
-            </select>
+
+          <div id="sec-ch" class="lookup-section vis">
+            <div class="nf">
+              <label>DME Channel Number (1 – 126)</label>
+              <div class="nrow">
+                <input type="number" id="dmeChannel" value="17" min="1" max="126" />
+                <select id="channelTypeSelect">
+                  <option value="X">X</option>
+                  <option value="Y">Y</option>
+                </select>
+              </div>
+            </div>
+            <button class="nav-calc-btn" onclick="runChannel()">▶ Calculate Frequencies</button>
           </div>
+
+          <div id="sec-nav" class="lookup-section">
+            <div class="nf">
+              <label>NAV Frequency (108.00 – 117.95 MHz)</label>
+              <input type="text" id="navFreqInput" value="108.10" placeholder="e.g. 115.50" />
+            </div>
+            <button class="nav-calc-btn" onclick="runNav()">▶ Find Channel &amp; Frequencies</button>
+          </div>
+
+          <div id="sec-llz" class="lookup-section">
+            <div class="nf">
+              <label>LLZ Frequency (108.10 – 111.95 MHz)</label>
+              <input type="text" id="llzFreqInput" value="109.90" placeholder="e.g. 109.90" />
+            </div>
+            <button class="nav-calc-btn" onclick="runLLZ()">▶ Find Glide Path Frequency</button>
+          </div>
+
+          <div class="nav-err" id="navErr"></div>
         </div>
-        <div style="margin-top:16px">
-          <button class="btn btn-full" id="lookupDMEChannel">▶ Lookup Channel</button>
-        </div>
-      </div>
 
-      <!-- Lookup B: NAV Freq → Channel -->
-      <div class="card">
-        <div class="card-title">Lookup B</div>
-        <h2>VOR / ILS Frequency → DME Channel</h2>
-        <p class="desc">Enter a VOR or ILS frequency (108.00–117.95 MHz) to identify the paired DME channel and UHF frequencies.</p>
-
-        <div class="field-row">
-          <div class="field" style="margin-bottom:0">
-            <label>NAV Frequency (MHz)</label>
-            <input type="text" id="navFreqInput" value="108.10" />
+        <!-- RIGHT: live result -->
+        <div class="nav-right">
+          <div class="res-card">
+            <div class="res-card-title" id="resCardTitle">Results</div>
+            <div id="resEmpty" class="empty-state">
+              <span>📡</span>
+              Select a lookup mode<br>and press Calculate
+            </div>
+            <div id="resContent" style="display:none"></div>
           </div>
-          <div style="padding-top:26px">
-            <button class="btn" id="lookupNAVFreq">▶ Lookup</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Lookup C: LLZ → GP -->
-      <div class="card">
-        <div class="card-title">Lookup C</div>
-        <h2>LLZ Frequency → Glide Path Frequency</h2>
-        <p class="desc">Enter an ILS Localizer frequency (108.10–111.95 MHz) to find the corresponding Glide Path frequency.</p>
-
-        <div class="field-row">
-          <div class="field" style="margin-bottom:0">
-            <label>LLZ Frequency (MHz)</label>
-            <input type="text" id="llzFreqInput" value="109.90" />
-          </div>
-          <div style="padding-top:26px">
-            <button class="btn" id="lookupLLZFreq">▶ Lookup</button>
-          </div>
-        </div>
-        <div style="margin-top:16px; font-family:var(--mono); font-size:13px; color:var(--muted);">
-          Associated Glide Path: <span id="gpFreqDisplay" style="color:var(--success); font-size:15px; font-weight:700;">---</span>
         </div>
       </div>
 
-      <!-- Results -->
-      <div class="card">
-        <div class="card-title">Results</div>
-        <h2>Frequency Data</h2>
-        <div class="error-msg" id="errorMsg"></div>
-        <table class="result-table">
-          <thead>
-            <tr>
-              <th>Parameter</th>
-              <th>Value</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Channel Identifier</td>
-              <td><span class="val-highlight" id="channelIdentifier">---</span></td>
-            </tr>
-            <tr>
-              <td>VHF NAV Freq / Service</td>
-              <td id="navFreq">---</td>
-            </tr>
-            <tr>
-              <td>DME Ground TX (Reply / Aircraft RX)</td>
-              <td><span class="val-success" id="dmeFreqRxA">---</span></td>
-            </tr>
-            <tr>
-              <td>DME Ground RX (Interrogation / Aircraft TX)</td>
-              <td><span class="val-warn" id="dmeFreqTxA">---</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    </div>
+  </div>
 
-    </div><!-- /panel-navaids -->
-  </main>
+</main>
 
-  <!-- ─── FOOTER ─── -->
-  <footer>By: Ayush Kaushik · A.M (CNS) · RCDU · AAI</footer>
+<footer>By: Ayush Kaushik · A.M (CNS) · RCDU · AAI</footer>
 
-  <script>
-    /* ══════════════════════════════════════════
-       TAB NAVIGATION
-    ══════════════════════════════════════════ */
-    function switchTab(id, btn) {
-      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      document.getElementById('panel-' + id).classList.add('active');
-      btn.classList.add('active');
+<script>
+/* TAB SWITCHING */
+function switchTab(id, btn) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+/* MODULE 1: MORSE */
+document.getElementById("calculate").addEventListener("click", function () {
+  const DOT_TIME = 130, DASH_TIME = 380, SPACING_TIME = 120, INTERVAL_TIME = 370;
+  const morseCode = {
+    A:".-",B:"-...",C:"-.-.",D:"-..",E:".",F:"..-.",G:"--.",H:"....",
+    I:"..",J:".---",K:"-.-",L:".-..",M:"--",N:"-.",O:"---",P:".--.",
+    Q:"--.-",R:".-.",S:"...",T:"-",U:"..-",V:"...-",W:".--",X:"-..-",
+    Y:"-.--",Z:"--..",1:".----",2:"..---",3:"...--",4:"....-",5:".....",
+    6:"-....",7:"--...",8:"---..",9:"----.",0:"-----"
+  };
+  const resultEl = document.getElementById("result");
+  const visualEl = document.getElementById("morseVisual");
+  const input = document.getElementById("ident").value.trim().toUpperCase();
+  if (!input || input.length < 3 || input.length > 4 || !/^[A-Z0-9]+$/.test(input)) {
+    resultEl.textContent = "⚠ Please enter a valid 3–4 character identifier.";
+    resultEl.className = "result-box error"; visualEl.innerHTML = ''; return;
+  }
+  let totalTime = 0, morseOutput = "";
+  visualEl.innerHTML = '';
+  for (let i = 0; i < input.length; i++) {
+    const char = input[i];
+    const morse = morseCode[char];
+    if (!morse) { resultEl.textContent = `⚠ Invalid character: ${char}`; resultEl.className = "result-box error"; return; }
+    morseOutput += morse + " ";
+    const group = document.createElement('div');
+    group.className = 'morse-char-group';
+    for (let j = 0; j < morse.length; j++) {
+      const sym = document.createElement('div');
+      sym.className = morse[j] === '.' ? 'morse-dot' : 'morse-dash';
+      group.appendChild(sym);
+      totalTime += morse[j] === '.' ? DOT_TIME : DASH_TIME;
+      if (j < morse.length - 1) totalTime += SPACING_TIME;
     }
-
-    /* ══════════════════════════════════════════
-       MODULE 1 — MORSE CODE
-    ══════════════════════════════════════════ */
-    document.getElementById("calculate").addEventListener("click", function () {
-      const DOT_TIME = 130, DASH_TIME = 380, SPACING_TIME = 120, INTERVAL_TIME = 370;
-
-      const morseCode = {
-        A:".-",B:"-...",C:"-.-.",D:"-..",E:".",F:"..-.",
-        G:"--.",H:"....",I:"..",J:".---",K:"-.-",L:".-..",
-        M:"--",N:"-.",O:"---",P:".--.",Q:"--.-",R:".-.",
-        S:"...",T:"-",U:"..-",V:"...-",W:".--",X:"-..-",
-        Y:"-.--",Z:"--..",1:".----",2:"..---",3:"...--",
-        4:"....-",5:".....",6:"-....",7:"--...",8:"---..",
-        9:"----.",0:"-----"
-      };
-
-      const resultEl = document.getElementById("result");
-      const visualEl = document.getElementById("morseVisual");
-      const input = document.getElementById("ident").value.trim().toUpperCase();
-
-      if (!input || input.length < 3 || input.length > 4 || !/^[A-Z0-9]+$/.test(input)) {
-        resultEl.textContent = "⚠ Please enter a valid 3–4 character identifier.";
-        resultEl.className = "result-box error";
-        visualEl.innerHTML = '';
-        return;
-      }
-
-      let totalTime = 0, morseOutput = "";
-      visualEl.innerHTML = '';
-
-      for (let i = 0; i < input.length; i++) {
-        const char = input[i];
-        const morse = morseCode[char];
-        if (!morse) {
-          resultEl.textContent = `⚠ Invalid character: ${char}`;
-          resultEl.className = "result-box error";
-          return;
-        }
-        morseOutput += morse + " ";
-
-        // Build visual group
-        const group = document.createElement('div');
-        group.className = 'morse-char-group';
-        for (let j = 0; j < morse.length; j++) {
-          const sym = document.createElement('div');
-          sym.className = morse[j] === '.' ? 'morse-dot' : 'morse-dash';
-          group.appendChild(sym);
-          if (morse[j] === ".") totalTime += DOT_TIME;
-          else totalTime += DASH_TIME;
-          if (j < morse.length - 1) totalTime += SPACING_TIME;
-        }
-        visualEl.appendChild(group);
-        if (i < input.length - 1) {
-          const gap = document.createElement('div');
-          gap.className = 'morse-gap';
-          visualEl.appendChild(gap);
-          totalTime += INTERVAL_TIME;
-        }
-      }
-
-      const label = document.createElement('div');
-      label.className = 'morse-label';
-      label.style.width = '100%';
-      label.textContent = `● = dot (130ms)   ▬ = dash (380ms)   gap between chars = 370ms`;
-      visualEl.appendChild(label);
-
-      resultEl.innerHTML = `<strong>${input}</strong> → <span style="color:var(--accent)">${morseOutput.trim()}</span> &nbsp;|&nbsp; Total Time: <strong>${(totalTime/1000).toFixed(3)}s</strong>`;
-      resultEl.className = "result-box";
-    });
-
-    /* ══════════════════════════════════════════
-       MODULE 2 — FREQUENCY ACCURACY
-    ══════════════════════════════════════════ */
-    document.getElementById("calculate1").addEventListener("click", function () {
-      const assignedFrequency = parseFloat(document.getElementById("assigned-frequency").value);
-      const offset = parseFloat(document.getElementById("offset").value || 0);
-      const operation = document.getElementById("offset-operation").value;
-      const calculatedFrequency = parseFloat(document.getElementById("calculated-frequency").value);
-      const resultEl = document.getElementById("result1");
-
-      if (isNaN(assignedFrequency) || isNaN(offset) || isNaN(calculatedFrequency) ||
-          assignedFrequency <= 0 || calculatedFrequency <= 0 || offset < 0) {
-        resultEl.textContent = "⚠ Please enter valid frequencies and offset.";
-        resultEl.className = "result-box error";
-        return;
-      }
-
-      const offsetInMHz = offset / 1000;
-      const adjustedFreq = operation === "add" ? assignedFrequency + offsetInMHz : assignedFrequency - offsetInMHz;
-      const accuracy = ((Math.abs(calculatedFrequency - adjustedFreq) / adjustedFreq) * 100).toFixed(6);
-      const accNum = parseFloat(accuracy);
-      const statusColor = accNum < 0.002 ? 'var(--success)' : accNum < 0.005 ? 'var(--warn)' : 'var(--danger)';
-      const statusLabel = accNum < 0.002 ? '✔ PASS' : accNum < 0.005 ? '⚠ MARGINAL' : '✘ FAIL';
-
-      resultEl.innerHTML = `Deviation: <strong style="color:${statusColor}">${accuracy}%</strong> &nbsp;|&nbsp; Status: <strong style="color:${statusColor}">${statusLabel}</strong>`;
-      resultEl.className = "result-box";
-    });
-
-    /* ══════════════════════════════════════════
-       MODULE 3 — NAVAIDS / DME
-    ══════════════════════════════════════════ */
-    const llzToGpMapX = {
-      "108.10":"334.70","108.30":"334.10","108.50":"329.90","108.70":"330.50",
-      "108.90":"329.30","109.10":"311.40","109.30":"332.00","109.50":"332.60",
-      "109.70":"333.20","109.90":"333.80","110.10":"334.40","110.30":"335.00",
-      "110.50":"329.60","110.70":"330.20","110.90":"330.80","111.10":"331.70",
-      "111.30":"332.30","111.50":"332.90","111.70":"333.50","111.90":"331.10"
-    };
-    const llzToGpMapY = {
-      "108.15":"334.55","108.35":"333.95","108.55":"329.75","108.75":"330.35",
-      "108.95":"329.15","109.15":"331.25","109.35":"331.85","109.55":"332.45",
-      "109.75":"333.05","109.95":"333.65","110.15":"334.25","110.35":"334.85",
-      "110.55":"329.45","110.75":"330.05","110.95":"330.65","111.15":"331.55",
-      "111.35":"332.15","111.55":"332.75","111.75":"333.35","111.95":"330.95"
-    };
-
-    function clearDmeResults() {
-      document.getElementById('channelIdentifier').textContent = '---';
-      document.getElementById('navFreq').innerHTML = '---';
-      document.getElementById('dmeFreqTxA').textContent = '---';
-      document.getElementById('dmeFreqRxA').textContent = '---';
-      document.getElementById('errorMsg').textContent = '';
+    visualEl.appendChild(group);
+    if (i < input.length - 1) {
+      const gap = document.createElement('div'); gap.className = 'morse-gap';
+      visualEl.appendChild(gap); totalTime += INTERVAL_TIME;
     }
+  }
+  const lbl = document.createElement('div');
+  lbl.className = 'morse-label';
+  lbl.textContent = '● = dot (130ms)   ▬ = dash (380ms)   gap between chars = 370ms';
+  visualEl.appendChild(lbl);
+  resultEl.innerHTML = `<strong>${input}</strong> → <span style="color:var(--accent)">${morseOutput.trim()}</span> &nbsp;|&nbsp; Total Time: <strong>${(totalTime/1000).toFixed(3)}s</strong>`;
+  resultEl.className = "result-box";
+});
 
-    function lookupChannelFromNavFreq() {
-      clearDmeResults();
-      const navFreqInput = document.getElementById('navFreqInput').value.trim();
-      const F = parseFloat(navFreqInput);
-      if (isNaN(F) || F < 108.00 || F > 117.95) {
-        document.getElementById('errorMsg').textContent = "⚠ Invalid NAV frequency. Enter a value between 108.00 and 117.95 MHz.";
-        return;
-      }
-      let channelNumber = 0, channelType = '';
-      const F_fixed = F.toFixed(2);
-      if (F_fixed.slice(-1) === '0') {
-        if (F >= 108.10 && F <= 111.90) { channelNumber = Math.round((F-108.00)/0.1+17); channelType='X'; }
-        else if (F >= 112.00 && F <= 112.20) { channelNumber = Math.round((F-112.00)/0.1+57); channelType='X'; }
-        else if (F >= 112.30 && F <= 117.90) { channelNumber = Math.round((F-112.30)/0.1+70); channelType='X'; }
-      } else if (F_fixed.slice(-1) === '5') {
-        if (F >= 108.05 && F <= 111.95) { channelNumber = Math.round((F-108.05)/0.1+17); channelType='Y'; }
-        else if (F >= 112.05 && F <= 112.25) { channelNumber = Math.round((F-112.05)/0.1+57); channelType='Y'; }
-        else if (F >= 112.35 && F <= 117.95) { channelNumber = Math.round((F-112.35)/0.1+70); channelType='Y'; }
-      }
-      if (channelNumber >= 17 && channelNumber <= 126) {
-        document.getElementById('dmeChannel').value = channelNumber;
-        document.getElementById('channelTypeSelect').value = channelType;
-        lookupFrequencies();
-      } else {
-        document.getElementById('errorMsg').textContent = `⚠ NAV Frequency ${F_fixed} MHz is not a standard ILS/VOR frequency associated with a DME Channel.`;
-      }
-    }
+/* MODULE 2: FREQUENCY ACCURACY */
+document.getElementById("calculate1").addEventListener("click", function () {
+  const assignedFrequency = parseFloat(document.getElementById("assigned-frequency").value);
+  const offset = parseFloat(document.getElementById("offset").value || 0);
+  const operation = document.getElementById("offset-operation").value;
+  const calculatedFrequency = parseFloat(document.getElementById("calculated-frequency").value);
+  const resultEl = document.getElementById("result1");
+  if (isNaN(assignedFrequency) || isNaN(offset) || isNaN(calculatedFrequency) ||
+      assignedFrequency <= 0 || calculatedFrequency <= 0 || offset < 0) {
+    resultEl.textContent = "⚠ Please enter valid frequencies and offset.";
+    resultEl.className = "result-box error"; return;
+  }
+  const offsetInMHz = offset / 1000;
+  const adjustedFreq = operation === "add" ? assignedFrequency + offsetInMHz : assignedFrequency - offsetInMHz;
+  const accuracy = ((Math.abs(calculatedFrequency - adjustedFreq) / adjustedFreq) * 100).toFixed(6);
+  resultEl.innerHTML = `Accuracy: <strong style="color:var(--accent)">${accuracy}%</strong>`;
+  resultEl.className = "result-box";
+});
 
-    function lookupGPFromLLZFreq() {
-      const llzInput = document.getElementById('llzFreqInput').value.trim();
-      const gpDisplay = document.getElementById('gpFreqDisplay');
-      gpDisplay.textContent = '---';
-      const n = parseFloat(llzInput);
-      if (isNaN(n) || n < 108.10 || n > 111.95) { gpDisplay.textContent = '⚠ Invalid LLZ Freq (108.10–111.95)'; return; }
-      const key = n.toFixed(2);
-      const gpX = llzToGpMapX[key] || null;
-      const gpY = llzToGpMapY[key] || null;
-      if (gpX && gpY) gpDisplay.textContent = `X: ${gpX} MHz, Y: ${gpY} MHz`;
-      else if (gpX) gpDisplay.textContent = `${gpX} MHz (X Channel)`;
-      else if (gpY) gpDisplay.textContent = `${gpY} MHz (Y Channel)`;
-      else gpDisplay.textContent = `No GP found for ${key} MHz`;
-    }
+/* MODULE 3: NAVAIDS / DME */
+const llzX = {
+  "108.10":"334.70","108.30":"334.10","108.50":"329.90","108.70":"330.50",
+  "108.90":"329.30","109.10":"311.40","109.30":"332.00","109.50":"332.60",
+  "109.70":"333.20","109.90":"333.80","110.10":"334.40","110.30":"335.00",
+  "110.50":"329.60","110.70":"330.20","110.90":"330.80","111.10":"331.70",
+  "111.30":"332.30","111.50":"332.90","111.70":"333.50","111.90":"331.10"
+};
+const llzY = {
+  "108.15":"334.55","108.35":"333.95","108.55":"329.75","108.75":"330.35",
+  "108.95":"329.15","109.15":"331.25","109.35":"331.85","109.55":"332.45",
+  "109.75":"333.05","109.95":"333.65","110.15":"334.25","110.35":"334.85",
+  "110.55":"329.45","110.75":"330.05","110.95":"330.65","111.15":"331.55",
+  "111.35":"332.15","111.55":"332.75","111.75":"333.35","111.95":"330.95"
+};
 
-    function lookupFrequencies() {
-      const channelInput = document.getElementById('dmeChannel').value.trim();
-      const type = document.getElementById('channelTypeSelect').value;
-      const channelNumber = parseInt(channelInput);
-      const K = 63.0;
-      clearDmeResults();
-      if (isNaN(channelNumber) || channelNumber < 1 || channelNumber > 126) {
-        document.getElementById('errorMsg').textContent = "⚠ Invalid DME channel number. Enter a number between 1 and 126.";
-        return;
-      }
-      document.getElementById('channelIdentifier').textContent = `${channelNumber}${type}`;
-      let navFreqMHz, serviceType, associatedGP = "N/A";
-      if (channelNumber>=17&&channelNumber<=56&&type==='X') navFreqMHz=108.00+0.1*(channelNumber-17);
-      else if (channelNumber>=57&&channelNumber<=59&&type==='X') navFreqMHz=112.00+0.1*(channelNumber-57);
-      else if (channelNumber>=70&&channelNumber<=126&&type==='X') navFreqMHz=112.30+0.1*(channelNumber-70);
-      else if (channelNumber>=17&&channelNumber<=56&&type==='Y') navFreqMHz=108.05+0.1*(channelNumber-17);
-      else if (channelNumber>=57&&channelNumber<=59&&type==='Y') navFreqMHz=112.05+0.1*(channelNumber-57);
-      else if (channelNumber>=70&&channelNumber<=126&&type==='Y') navFreqMHz=112.35+0.1*(channelNumber-70);
+function showSec(id, btn) {
+  document.querySelectorAll('.lookup-section').forEach(s => s.classList.remove('vis'));
+  document.querySelectorAll('.seg-btn').forEach(b => b.classList.remove('on'));
+  document.getElementById('sec-' + id).classList.add('vis');
+  btn.classList.add('on'); clearNavErr();
+}
+function showNavErr(msg) { const e=document.getElementById('navErr'); e.textContent=msg; e.classList.add('show'); }
+function clearNavErr() { const e=document.getElementById('navErr'); e.textContent=''; e.classList.remove('show'); }
 
-      if (navFreqMHz) {
-        const navFreqFixed = navFreqMHz.toFixed(2);
-        serviceType = navFreqMHz >= 112 ? "VOR" : "ILS (LLZ)";
-        const map = (type==='X') ? llzToGpMapX : llzToGpMapY;
-        const foundGP = map[navFreqFixed] || null;
-        if (foundGP) associatedGP = `${foundGP} MHz`;
-        document.getElementById('navFreq').innerHTML =
-          `<strong style="color:var(--accent)">${serviceType}</strong> ${navFreqFixed} MHz` +
-          `<br><small style="color:var(--muted)">Glide Path: <span style="color:var(--success)">${associatedGP}</span></small>`;
-      } else {
-        document.getElementById('navFreq').innerHTML = `<span style="color:var(--muted)">N/A — Stand-Alone DME</span>`;
-      }
+function renderResults(title, html) {
+  clearNavErr();
+  document.getElementById('resCardTitle').textContent = title;
+  document.getElementById('resEmpty').style.display = 'none';
+  const rc = document.getElementById('resContent');
+  rc.style.display = 'block'; rc.innerHTML = html;
+}
 
-      let groundRx = 1025 + (channelNumber - 1);
-      const isLowerBand = (type==='X'&&channelNumber>=1&&channelNumber<=63)||(type==='Y'&&channelNumber>=64&&channelNumber<=126);
-      const groundTx = isLowerBand ? groundRx - K : groundRx + K;
-      document.getElementById('dmeFreqTxA').textContent = `${groundRx.toFixed(1)} MHz`;
-      document.getElementById('dmeFreqRxA').textContent = `${groundTx.toFixed(1)} MHz`;
-    }
+function statBlock(lbl, val, cls='', sub='') {
+  return `<div class="stat-block">
+    <div class="stat-lbl">${lbl}</div>
+    <div class="stat-val ${cls}">${val}</div>
+    ${sub ? `<div class="stat-sub">${sub}</div>` : ''}
+  </div>`;
+}
 
-    document.addEventListener('DOMContentLoaded', () => {
-      document.getElementById('lookupDMEChannel').addEventListener('click', lookupFrequencies);
-      document.getElementById('lookupNAVFreq').addEventListener('click', lookupChannelFromNavFreq);
-      document.getElementById('lookupLLZFreq').addEventListener('click', lookupGPFromLLZFreq);
-      lookupFrequencies();
-    });
-  </script>
+function freqGrid(gTx, gRx) {
+  return `<hr class="nav-divider">
+  <div class="stat-lbl" style="margin-bottom:10px">DME UHF Frequencies</div>
+  <div class="freq-grid">
+    <div class="freq-box">
+      <div class="freq-box-lbl">Ground TX<br>(Aircraft RX / Reply)</div>
+      <div class="freq-box-val gtx">${gTx} MHz</div>
+    </div>
+    <div class="freq-box">
+      <div class="freq-box-lbl">Ground RX<br>(Aircraft TX / Interrogation)</div>
+      <div class="freq-box-val grx">${gRx} MHz</div>
+    </div>
+  </div>`;
+}
+
+function calcDME(ch, type) {
+  const K = 63.0, gRx = 1025 + (ch - 1);
+  const lower = (type==='X'&&ch>=1&&ch<=63)||(type==='Y'&&ch>=64&&ch<=126);
+  return { gTx: lower ? gRx - K : gRx + K, gRx };
+}
+
+function calcNavFreq(ch, type) {
+  if(ch>=17&&ch<=56&&type==='X') return 108.00+0.1*(ch-17);
+  if(ch>=57&&ch<=59&&type==='X') return 112.00+0.1*(ch-57);
+  if(ch>=70&&ch<=126&&type==='X') return 112.30+0.1*(ch-70);
+  if(ch>=17&&ch<=56&&type==='Y') return 108.05+0.1*(ch-17);
+  if(ch>=57&&ch<=59&&type==='Y') return 112.05+0.1*(ch-57);
+  if(ch>=70&&ch<=126&&type==='Y') return 112.35+0.1*(ch-70);
+  return null;
+}
+
+function runChannel() {
+  const ch = parseInt(document.getElementById('dmeChannel').value);
+  const type = document.getElementById('channelTypeSelect').value;
+  if (isNaN(ch)||ch<1||ch>126) { showNavErr('Enter a channel number between 1 and 126.'); return; }
+  const {gTx, gRx} = calcDME(ch, type);
+  const navMHz = calcNavFreq(ch, type);
+  let html = statBlock('DME Channel', `${ch}${type}`, 'c-accent');
+  if (navMHz) {
+    const nf = navMHz.toFixed(2);
+    const svc = navMHz >= 112 ? 'VOR' : 'ILS (LLZ)';
+    const bc  = navMHz >= 112 ? 'badge-vor' : 'badge-ils';
+    html += statBlock('VHF NAV Frequency', `${nf} MHz <span class="badge ${bc}">${svc}</span>`);
+    const gp = (type==='X' ? llzX : llzY)[nf];
+    if (gp) html += statBlock('Associated Glide Path', `${gp} MHz`, 'c-success');
+  } else {
+    html += statBlock('NAV Association', 'Stand-alone DME');
+  }
+  html += freqGrid(gTx.toFixed(1), gRx.toFixed(1));
+  renderResults(`Channel ${ch}${type}`, html);
+}
+
+function runNav() {
+  const F = parseFloat(document.getElementById('navFreqInput').value);
+  if (isNaN(F)||F<108.00||F>117.95) { showNavErr('Enter a NAV frequency between 108.00 and 117.95 MHz.'); return; }
+  const ff = F.toFixed(2);
+  let ch=0, type='';
+  if (ff.slice(-1)==='0') {
+    if(F>=108.10&&F<=111.90){ch=Math.round((F-108.00)/0.1+17);type='X';}
+    else if(F>=112.00&&F<=112.20){ch=Math.round((F-112.00)/0.1+57);type='X';}
+    else if(F>=112.30&&F<=117.90){ch=Math.round((F-112.30)/0.1+70);type='X';}
+  } else if (ff.slice(-1)==='5') {
+    if(F>=108.05&&F<=111.95){ch=Math.round((F-108.05)/0.1+17);type='Y';}
+    else if(F>=112.05&&F<=112.25){ch=Math.round((F-112.05)/0.1+57);type='Y';}
+    else if(F>=112.35&&F<=117.95){ch=Math.round((F-112.35)/0.1+70);type='Y';}
+  }
+  if (!ch||ch<17||ch>126) { showNavErr(`${ff} MHz is not a standard ILS/VOR frequency paired with a DME channel.`); return; }
+  document.getElementById('dmeChannel').value = ch;
+  document.getElementById('channelTypeSelect').value = type;
+  const {gTx, gRx} = calcDME(ch, type);
+  const svc = F>=112 ? 'VOR' : 'ILS (LLZ)';
+  const bc  = F>=112 ? 'badge-vor' : 'badge-ils';
+  const gp  = (type==='X' ? llzX : llzY)[ff];
+  let html = statBlock('NAV Frequency', `${ff} MHz <span class="badge ${bc}">${svc}</span>`);
+  html += statBlock('Paired DME Channel', `${ch}${type}`, 'c-accent');
+  if (gp) html += statBlock('Associated Glide Path', `${gp} MHz`, 'c-success');
+  html += freqGrid(gTx.toFixed(1), gRx.toFixed(1));
+  renderResults(`${ff} MHz → Ch ${ch}${type}`, html);
+}
+
+function runLLZ() {
+  const n = parseFloat(document.getElementById('llzFreqInput').value);
+  if (isNaN(n)||n<108.10||n>111.95) { showNavErr('Enter an LLZ frequency between 108.10 and 111.95 MHz.'); return; }
+  const key = n.toFixed(2);
+  const gpX = llzX[key] || null;
+  const gpY = llzY[key] || null;
+  let html = statBlock('LLZ Frequency', `${key} MHz`, 'c-accent');
+  if (gpX) html += statBlock('Glide Path — X Channel', `${gpX} MHz`, 'c-success');
+  if (gpY) html += statBlock('Glide Path — Y Channel', `${gpY} MHz`, 'c-warn');
+  if (!gpX && !gpY) html += `<div class="stat-block"><div class="stat-lbl">Glide Path</div><div class="stat-val" style="color:var(--muted);font-size:14px">No match found for ${key} MHz</div></div>`;
+  renderResults(`LLZ ${key} MHz`, html);
+}
+
+document.addEventListener('DOMContentLoaded', () => { runChannel(); });
+</script>
 </body>
 </html>
